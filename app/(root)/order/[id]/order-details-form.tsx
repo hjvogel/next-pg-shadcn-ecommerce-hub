@@ -254,7 +254,7 @@ export default function OrderDetailsForm({
                   clientSecret={stripeClientSecret}
                 />
               )}
-              {isAdmin && !isPaid && paymentMethod === 'CashOnDelivery' && (
+              {isAdmin && !isPaid && paymentMethod === 'MicroPayments' && (
                 <MarkAsPaidButton />
               )}
               {isAdmin && isPaid && !isDelivered && <MarkAsDeliveredButton />}
