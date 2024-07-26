@@ -10,11 +10,11 @@
 | Authentication | Auth.js, Google Auth, Magic Link                         |
 | Others         | uploadthing, resend, zod                                 |
 
-[![next postgresql amazona](/public/assets/images/app.jpg)](https://next-pg-shadcn-ecommerce.vercel.app/)
+[![next postgresql ShopHub](/public/assets/images/app.jpg)](https://next-pg-shadcn-ecommerce.vercel.app/)
 
 ## Watch Video Tutorial
 
-[![next postgresql amazona](http://img.youtube.com/vi/M4DrCi8EuYE/0.jpg)](https://www.youtube.com/watch?v=sCFYd1pQBfk&list=PLeh2GWv22bmQhKLSG7DuwptE8BGy8y3lJ&index=1 'Build Ecommerce App By Next.js, Drizzle ORM, Postgres, Shadcn and Stripe')
+[![next postgresql ShopHub](http://img.youtube.com/vi/M4DrCi8EuYE/0.jpg)](https://www.youtube.com/watch?v=sCFYd1pQBfk&list=PLeh2GWv22bmQhKLSG7DuwptE8BGy8y3lJ&index=1 'Build Ecommerce App By Next.js, Drizzle ORM, Postgres, Shadcn and Stripe')
 
 ## View Demo Website
 
