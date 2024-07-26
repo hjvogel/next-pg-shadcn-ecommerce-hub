@@ -14,7 +14,7 @@ import {
 import { primaryKey } from 'drizzle-orm/pg-core/primary-keys'
 import { AdapterAccountType } from 'next-auth/adapters'
 
-// USERS
+// USERS - noo thy called user tabel use but export users - TOD migrate later
 export const users = pgTable(
   'user',
   {
@@ -206,3 +206,63 @@ export const orderItemsRelations = relations(orderItems, ({ one }) => ({
     references: [orders.id],
   }),
 }))
+
+// merge with legacy from ProfiThon.site
+
+import {  varchar, bigint, unique, serial, doublePrecision } from "drizzle-orm/pg-core"
+//import { sql } from "drizzle-orm"
+
+
+export const project_logs = pgTable("project_logs", {
+	project: varchar("project", { length: 255 }).primaryKey().notNull(),
+	// You can use { mode: "bigint" } if numbers are exceeding js number limitations
+	visit_count: bigint("visit_count", { mode: "number" }).default(0),
+	// You can use { mode: "bigint" } if numbers are exceeding js number limitations
+	github_stars_count: bigint("github_stars_count", { mode: "number" }).default(0),
+	// You can use { mode: "bigint" } if numbers are exceeding js number limitations
+	tx_count: bigint("tx_count", { mode: "number" }).default(0),
+	// You can use { mode: "bigint" } if numbers are exceeding js number limitations
+	like_count: bigint("like_count", { mode: "number" }).default(0),
+	// You can use { mode: "bigint" } if numbers are exceeding js number limitations
+	members_count: bigint("members_count", { mode: "number" }).default(0),
+	// You can use { mode: "bigint" } if numbers are exceeding js number limitations
+	profit: bigint("profit", { mode: "number" }).default(0),
+	createdAt: timestamp("createdAt", { withTimezone: true, mode: 'string' }).defaultNow(),
+});
+
+export const user = pgTable("users", {
+	id: serial("id").primaryKey().notNull(),
+	name: varchar("name", { length: 255 }).notNull(),
+	email: varchar("email", { length: 255 }).notNull(),
+	project: varchar("project", { length: 255 }).notNull(),
+	image: varchar("image", { length: 255 }),
+	createdAt: timestamp("createdAt", { withTimezone: true, mode: 'string' }).defaultNow(),
+},
+(table) => {
+	return {
+		users_email_key: unique("users_email_key").on(table.email),
+	}
+});
+
+export const projects = pgTable("projects", {
+	id: serial("id").primaryKey().notNull(),
+	project: varchar("project", { length: 255 }).notNull(),
+	project_link: varchar("project_link", { length: 255 }),
+	code_repo_link: varchar("code_repo_link", { length: 255 }),
+	// You can use { mode: "bigint" } if numbers are exceeding js number limitations
+	visit_count: bigint("visit_count", { mode: "number" }).default(0),
+	// You can use { mode: "bigint" } if numbers are exceeding js number limitations
+	tx_count: bigint("tx_count", { mode: "number" }).default(0),
+	// You can use { mode: "bigint" } if numbers are exceeding js number limitations
+	members_count: bigint("members_count", { mode: "number" }).default(0),
+	// You can use { mode: "bigint" } if numbers are exceeding js number limitations
+	stars_count: bigint("stars_count", { mode: "number" }).default(0),
+	earnings: doublePrecision("earnings"),
+	// You can use { mode: "bigint" } if numbers are exceeding js number limitations
+	high_score: bigint("high_score", { mode: "number" }),
+},
+(table) => {
+	return {
+		project_unique: unique("project_unique").on(table.project),
+	}
+});

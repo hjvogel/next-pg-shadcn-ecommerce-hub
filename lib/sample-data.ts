@@ -22,7 +22,7 @@ const sampleData = {
       category: "Men's Sweatshirts",
       images: ['/assets/images/p1-1.jpeg', '/assets/images/p1-2.jpeg'],
       price: '59.99',
-      brand: 'Nike',
+      brand: 'Lacoste',
       rating: '4.5',
       numReviews: 10,
       stock: 5,
@@ -53,7 +53,7 @@ const sampleData = {
       images: ['/assets/images/p3-1.jpeg', '/assets/images/p3-2.jpeg'],
 
       price: '149.95',
-      brand: 'Nike',
+      brand: 'Lacoste',
       rating: '4.9',
       numReviews: 3,
       stock: 0,
