@@ -75,11 +75,11 @@ dependencies:
     specifier: ^2.1.1
     version: 2.1.1
   drizzle-orm:
-    specifier: ^0.30.10
-    version: 0.30.10(@types/pg@8.11.6)(@types/react@18.3.1)(@vercel/postgres@0.8.0)(pg@8.11.5)(react@18.3.1)
+    specifier: ^0.32.00
+    version: 0.32.1(@types/pg@8.11.6)(@types/react@18.3.1)(@vercel/postgres@0.8.0)(pg@8.11.5)(react@18.3.1)
   drizzle-zod:
     specifier: ^0.5.1
-    version: 0.5.1(drizzle-orm@0.30.10)(zod@3.23.8)
+    version: 0.5.1(drizzle-orm@0.32.1)(zod@3.23.8)
   embla-carousel-autoplay:
     specifier: ^8.1.4
     version: 8.1.4(embla-carousel@8.1.4)
@@ -98,6 +98,9 @@ dependencies:
   next-themes:
     specifier: ^0.3.0
     version: 0.3.0(react-dom@18.3.1)(react@18.3.1)
+  pgvector:
+    specifier: ^0.2.0
+    version: 0.2.0
   query-string:
     specifier: ^9.0.0
     version: 9.0.0
@@ -4176,8 +4179,8 @@ packages:
       - supports-color
     dev: true
 
-  /drizzle-orm@0.30.10(@types/pg@8.11.6)(@types/react@18.3.1)(@vercel/postgres@0.8.0)(pg@8.11.5)(react@18.3.1):
-    resolution: {integrity: sha512-IRy/QmMWw9lAQHpwbUh1b8fcn27S/a9zMIzqea1WNOxK9/4EB8gIo+FZWLiPXzl2n9ixGSv8BhsLZiOppWEwBw==}
+  /drizzle-orm@0.32.1(@types/pg@8.11.6)(@types/react@18.3.1)(@vercel/postgres@0.8.0)(pg@8.11.5)(react@18.3.1):
+    resolution: {integrity: sha512-Wq1J+lL8PzwR5K3a1FfoWsbs8powjr3pGA4+5+2ueN1VTLDNFYEolUyUWFtqy8DVRvYbL2n7sXZkgVmK9dQkng==}
     peerDependencies:
       '@aws-sdk/client-rds-data': '>=3'
       '@cloudflare/workers-types': '>=3'
@@ -4187,6 +4190,8 @@ packages:
       '@op-engineering/op-sqlite': '>=2'
       '@opentelemetry/api': ^1.4.1
       '@planetscale/database': '>=1'
+      '@prisma/client': '*'
+      '@tidbcloud/serverless': '*'
       '@types/better-sqlite3': '*'
       '@types/pg': '*'
       '@types/react': '>=18'
@@ -4201,6 +4206,7 @@ packages:
       mysql2: '>=2'
       pg: '>=8'
       postgres: '>=3'
+      prisma: '*'
       react: '>=18'
       sql.js: '>=1'
       sqlite3: '>=5'
@@ -4220,6 +4226,10 @@ packages:
       '@opentelemetry/api':
         optional: true
       '@planetscale/database':
+        optional: true
+      '@prisma/client':
+        optional: true
+      '@tidbcloud/serverless':
         optional: true
       '@types/better-sqlite3':
         optional: true
@@ -4249,6 +4259,8 @@ packages:
         optional: true
       postgres:
         optional: true
+      prisma:
+        optional: true
       react:
         optional: true
       sql.js:
@@ -4263,13 +4275,13 @@ packages:
       react: 18.3.1
     dev: false
 
-  /drizzle-zod@0.5.1(drizzle-orm@0.30.10)(zod@3.23.8):
+  /drizzle-zod@0.5.1(drizzle-orm@0.32.1)(zod@3.23.8):
     resolution: {integrity: sha512-C/8bvzUH/zSnVfwdSibOgFjLhtDtbKYmkbPbUCq46QZyZCH6kODIMSOgZ8R7rVjoI+tCj3k06MRJMDqsIeoS4A==}
     peerDependencies:
       drizzle-orm: '>=0.23.13'
       zod: '*'
     dependencies:
-      drizzle-orm: 0.30.10(@types/pg@8.11.6)(@types/react@18.3.1)(@vercel/postgres@0.8.0)(pg@8.11.5)(react@18.3.1)
+      drizzle-orm: 0.32.1(@types/pg@8.11.6)(@types/react@18.3.1)(@vercel/postgres@0.8.0)(pg@8.11.5)(react@18.3.1)
       zod: 3.23.8
     dev: false
 
@@ -6357,6 +6369,11 @@ packages:
     resolution: {integrity: sha512-FdW9r/jQZhSeohs1Z3sI1yxFQNFvMcnmfuj4WBMUTxOrAyLMaTcE1aAMBiTlbMNaXvBCQuVi0R7hd8udDSP7ug==}
     dependencies:
       split2: 4.2.0
+
+  /pgvector@0.2.0:
+    resolution: {integrity: sha512-ef9SggYLzgshzpsFHAha77ghSOucf1ebXcuvokgTQK6V01uihqGJv6i0+U+yjEgiDsiVtTdojDrqOHRcSmcECw==}
+    engines: {node: '>= 18'}
+    dev: false
 
   /picocolors@1.0.0:
     resolution: {integrity: sha512-1fygroTLlHu66zi26VoTDv8yRgm0Fccecssto+MhsZ0D/DGW2sm8E8AjW7NU5VVTRt5GxbeZ5qBuJr+HyLYkjQ==}

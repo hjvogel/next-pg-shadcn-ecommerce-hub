@@ -9,7 +9,9 @@ import {
   text,
   timestamp,
   uniqueIndex,
+  index,
   uuid,
+  vector,
 } from 'drizzle-orm/pg-core'
 import { primaryKey } from 'drizzle-orm/pg-core/primary-keys'
 import { AdapterAccountType } from 'next-auth/adapters'
@@ -100,10 +102,13 @@ export const products = pgTable(
     isFeatured: boolean('isFeatured').default(false).notNull(),
     banner: text('banner'),
     createdAt: timestamp('createdAt').defaultNow().notNull(),
+    url: text('url'),
+    //embedding: vector('embedding', { dimensions: 1536 }), - still breaks the running
   },
   (table) => {
     return {
       productSlugIdx: uniqueIndex('product_slug_idx').on(table.slug),
+      //embeddingIndex: index('embeddingIndex').using('hnsw', table.embedding.op('vector_cosine_ops')),
     }
   }
 )
